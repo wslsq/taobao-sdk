@@ -1,0 +1,70 @@
+<?php
+namespace Flofire\TaobaoSDK\Top\Request;
+
+use Flofire\TaobaoSDK\Top\RequestCheckUtil;
+use Flofire\TaobaoSDK\Top\RequestInterface;
+
+/**
+ * TOP API: taobao.tmc.user.cancel request
+ *
+ * @author auto create
+ * @since  1.0, 2015.12.04
+ */
+class TmcUserCancelRequest implements RequestInterface
+{
+    /**
+     * 用户昵称
+     **/
+    private $nick;
+
+    /**
+     * 用户所属的平台类型，tbUIC:淘宝用户; icbu: icbu用户
+     **/
+    private $userPlatform;
+
+    private $apiParas = [ ];
+
+    public function setNick($nick)
+    {
+        $this->nick = $nick;
+        $this->apiParas["nick"] = $nick;
+    }
+
+    public function getNick()
+    {
+        return $this->nick;
+    }
+
+    public function setUserPlatform($userPlatform)
+    {
+        $this->userPlatform = $userPlatform;
+        $this->apiParas["user_platform"] = $userPlatform;
+    }
+
+    public function getUserPlatform()
+    {
+        return $this->userPlatform;
+    }
+
+    public function getApiMethodName()
+    {
+        return "taobao.tmc.user.cancel";
+    }
+
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->nick, "nick");
+    }
+
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[ $key ] = $value;
+        $this->$key = $value;
+    }
+}

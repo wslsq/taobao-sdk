@@ -1,0 +1,28 @@
+{
+    "name": "flofire/taobao-sdk",
+    "description": "taobao api php sdk, edit from lonquan/taobao-sdk",
+    "minimum-stability": "dev",
+    "type": "sdk",
+    "keywords": [
+        "taobao api",
+        "taobao sdk",
+        "taobao sdk php",
+        "taobao api php"
+    ],
+    "homepage": "https://github.com/wslsq/taobao-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "flofire",
+            "email": "flofire.l@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flofire\\TaobaoSDK\\": "src/"
+        }
+    }
+}

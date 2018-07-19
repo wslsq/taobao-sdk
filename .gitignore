@@ -1,0 +1,4 @@
+/vendor/
+/test.php
+/.idea/
+/src/Logs/tb_sdk_log_*

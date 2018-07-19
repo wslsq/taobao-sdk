@@ -1,0 +1,54 @@
+<?php
+namespace Flofire\TaobaoSDK\Top\Request;
+
+use Flofire\TaobaoSDK\Top\RequestCheckUtil;
+use Flofire\TaobaoSDK\Top\RequestInterface;
+
+/**
+ * TOP API: taobao.sellercenter.user.permissions.get request
+ *
+ * @author auto create
+ * @since  1.0, 2016.03.05
+ */
+class SellercenterUserPermissionsGetRequest implements RequestInterface
+{
+    /**
+     * 用户标识，次入参必须为子账号比如zhangsan:cool。如果只输入主账号zhangsan，将报错。
+     **/
+    private $nick;
+
+    private $apiParas = [ ];
+
+    public function setNick($nick)
+    {
+        $this->nick = $nick;
+        $this->apiParas["nick"] = $nick;
+    }
+
+    public function getNick()
+    {
+        return $this->nick;
+    }
+
+    public function getApiMethodName()
+    {
+        return "taobao.sellercenter.user.permissions.get";
+    }
+
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->nick, "nick");
+    }
+
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[ $key ] = $value;
+        $this->$key = $value;
+    }
+}

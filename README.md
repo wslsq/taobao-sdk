@@ -9,11 +9,7 @@ taobao-sdk for php
 
 ```
 composer require flofire/taobao-sdk
-```
 
-# 安装
-```
-composer require "flofire/taobao-sdk"
 
 php artisan vendor:publish --provider="flofire\taobao-sdk\TaoBaoSdkServiceProvider"
 ```

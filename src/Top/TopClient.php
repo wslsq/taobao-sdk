@@ -122,7 +122,10 @@ class TopClient
         }
 		
 		if ($this->config->proxy && $this->config->proxy['use_proxy'] == true){
-			curl_setopt($ch, CURLOPT_PROXY, $this->config->proxy['ip'] . ':' . $this->config->proxy['port']);
+
+			curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, false);
+			curl_setopt($ch, CURLOPT_PROXY, $this->config->proxy['ip']);
+			curl_setopt($ch, CURLOPT_PROXYPORT, $this->config->proxy['port']);
 		}
 
         $response = curl_exec($ch);
@@ -212,6 +215,7 @@ class TopClient
 
     protected function logCommunicationError($apiName, $requestUrl, $errorCode, $responseTxt)
     {
+		/*
         $localIp = isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "CLI";
         $logger = new TopLogger;
         $logger->conf['log_file'] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_comm_err_" . $this->appKey . "_" . date("Y-m-d") . ".log";
@@ -228,6 +232,7 @@ class TopClient
             str_replace("\n", "", $responseTxt),
         ];
         $logger->log($logData);
+		*/
     }
 
     public function execute(RequestInterface $request, $session = null, $bestUrl = null)

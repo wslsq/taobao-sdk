@@ -2,6 +2,7 @@
 namespace Flofire\TaobaoSDK\Config;
 
 
+use Illuminate\Support\Facades\Config as LaravelConfig;
 use Flofire\TaobaoSDK\Exception\TaoBaoSDKException;
 
 class Config
@@ -12,6 +13,8 @@ class Config
     /** @var string 正式环境 */
     public $appKey;
     public $appSecret;
+	
+	public $proxy;
 
     /** @var string 沙箱环境 */
     public $sandboxAppKey;
@@ -38,7 +41,9 @@ class Config
         if (!isset($option['appKey']) || !isset($option['appSecret'])) {
             throw new TaoBaoSDKException('appKey 或者 appSecret 未定义');
         }
-
+		
+		$this->proxy = LaravelConfig::get('taobao_sdk_proxy');
+		
         $this->appKey = $option['appKey'];
         $this->appSecret = $option['appSecret'];
 

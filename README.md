@@ -1,14 +1,21 @@
 taobao-sdk for php
 ==================
->[基于lonquan/taobao-sdk修改修复bug](https://github.com/lonquan/taobao-sdk)
+>flofire:[基于lonquan/taobao-sdk修改修复bug，增加代理功能](https://github.com/lonquan/taobao-sdk)
 
->基于官方 SDK 修改而来, 增加命名空间, 获取授权等
+>lonquan:基于官方 SDK 修改而来, 增加命名空间, 获取授权等
 ## 安装
 
 使用 Composer 安装:
 
 ```
 composer require flofire/taobao-sdk
+```
+
+# 安装
+```
+composer require "flofire/taobao-sdk"
+
+php artisan vendor:publish --provider="flofire\taobao-sdk\TaoBaoSdkServiceProvider"
 ```
 
 ## 使用

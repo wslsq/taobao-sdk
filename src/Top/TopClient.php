@@ -120,6 +120,10 @@ class TopClient
                 curl_setopt($ch, CURLOPT_POSTFIELDS, substr($postBodyString, 0, -1));
             }
         }
+		
+		if ($this->config->proxy && $this->config->proxy['use_proxy'] == true){
+			curl_setopt($ch, CURLOPT_PROXY, $this->config->proxy['ip'] . ':' $this->config->proxy['port']);
+		}
 
         $response = curl_exec($ch);
 
